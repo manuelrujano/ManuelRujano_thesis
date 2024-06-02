@@ -20,56 +20,59 @@ data2 <- read.xlsx("C:/Users/manue/Downloads/exome2/Merged_data_exome_filtered.x
 
 #Intersect variants
 
-endo1_1 <- c("2E_vs_2N", "4E_vs_4N")
-tumor1_1 <- c("2O_vs_2N", "4O_vs_4N")
-endo2_1 <- c("1E_vs_1N", "3E_vs_3N", "5E_vs_5N", "6E_vs_6N")
-tumor2_1 <- c("1O_vs_1N", "3O_vs_3N", "5O_vs_5N", "6O_vs_6N")
+#Assign subgroups of histotypes for Endo-seq (A) dataset
 
-#Synchronous
+names_endo_CCOC_A <- c("2E_vs_2N", "4E_vs_4N")
+names_tumor_CCOC_A <- c("2O_vs_2N", "4O_vs_4N")
+names_endo_EOC_A <- c("1E_vs_1N", "3E_vs_3N", "5E_vs_5N", "6E_vs_6N")
+names_tumor_EOC_A <- c("1O_vs_1N", "3O_vs_3N", "5O_vs_5N", "6O_vs_6N")
 
-endo1_2 <- c("2A_vs_2C", "3A_vs_3C")
-tumor1_2 <- c("2B_vs_2C", "3B_vs_3C")
-endo2_2 <- c("9A_vs_9C")
-tumor2_2 <- c("9B_vs_9C")
+#Same step for Synchron-seq (B)
 
-#Asynchronous
+names_endo_CCOC_B <- c("2A_vs_2C", "3A_vs_3C")
+names_tumor_CCOC_B <- c("2B_vs_2C", "3B_vs_3C")
+names_endo_EOC_B<- c("9A_vs_9C")
+names_tumor_EOC_B <- c("9B_vs_9C")
 
-filtered_data1_1 <- data1[data1$Sample %in% endo1_1, ]
-filtered_data2_1 <- data1[data1$Sample %in% tumor1_1, ]
-filtered_data3_1 <- data1[data1$Sample %in% endo2_1, ]
-filtered_data4_1 <- data1[data1$Sample %in% tumor2_1, ]
+#Endo-seq subgroup
 
-#Synchronous
+subgroup_endo_CCOC_A <- data1[data1$Sample %in% names_endo_CCOC_A, ]
+subgroup_tumor_CCOC_A <- data1[data1$Sample %in% names_tumor_CCOC_A, ]
+subgroup_endo_EOC_A <- data1[data1$Sample %in% names_endo_EOC_A, ]
+subgroup_tumor_EOC_A <- data1[data1$Sample %in% names_tumor_EOC_A, ]
 
-filtered_data1_2 <- data2[data2$Sample %in% endo1_2, ]
-filtered_data2_2 <- data2[data2$Sample %in% tumor1_2, ]
-filtered_data3_2 <- data2[data2$Sample %in% endo2_2, ]
-filtered_data4_2 <- data2[data2$Sample %in% tumor2_2, ]
+#Synchron-seq subgroup
 
-# Define the data for the sets
-set1_1 <- filtered_data1_1$Variant
-set2_1 <- filtered_data2_1$Variant
-set3_1 <- filtered_data3_1$Variant
-set4_1 <- filtered_data4_1$Variant
+subgroup_endo_CCOC_B <- data2[data2$Sample %in% names_endo_CCOC_B, ]
+subgroup_tumor_CCOC_B <- data2[data2$Sample %in% names_tumor_CCOC_B, ]
+subgroup_endo_EOC_B <- data2[data2$Sample %in% names_endo_EOC_B, ]
+subgroup_tumor_EOC_B <- data2[data2$Sample %in% names_tumor_EOC_B, ]
 
 # Define the data for the sets
-set1_2 <- filtered_data1_2$Variant
-set2_2 <- filtered_data2_2$Variant
-set3_2 <- filtered_data3_2$Variant
-set4_2 <- filtered_data4_2$Variant
+variants_endo_CCOC_A <- subgroup_endo_CCOC_A$Variant
+variants_tumor_CCOC_A <- subgroup_tumor_CCOC_A$Variant
+variants_endo_EOC_A <- subgroup_endo_EOC_A$Variant
+variants_tumor_EOC_A <- subgroup_tumor_EOC_A$Variant
 
-# Calculate the intersections
-intersection_endoseq_OE <- intersect(set1_1, set3_1)
-intersection_endoseq_OC <- intersect(set2_1, set4_1)
-# Calculate the intersections
-intersection_synchron_OE <- intersect(set1_2, set3_2)
-intersection_synchron_OC <- intersect(set2_2, set4_2)
+# Define the data for the sets
+variants_endo_CCOC_B <- subgroup_endo_CCOC_B$Variant
+variants_tumor_CCOC_B <- subgroup_tumor_CCOC_B$Variant
+variants_endo_EOC_B <- subgroup_endo_EOC_B$Variant
+variants_tumor_EOC_B <- subgroup_tumor_EOC_B$Variant
+
+# Calculate the intersections in OE and OC
+intersection_endoseq_OE <- intersect(variants_endo_CCOC_A, variants_endo_EOC_A)
+intersection_endoseq_OC <- intersect(variants_tumor_CCOC_A, variants_tumor_EOC_A)
+
+# Calculate the intersections in OE and OC
+intersection_synchron_OE <- intersect(variants_endo_CCOC_B, variants_endo_EOC_B)
+intersection_synchron_OC <- intersect(variants_tumor_CCOC_B, variants_tumor_EOC_B)
 
 intersection_all_endoseq <- intersect(intersection_endoseq_OE, intersection_endoseq_OC)
 
 intersection_all_synchron <- intersect(intersection_synchron_OE, intersection_synchron_OC)
 
-# Display the overlapping elements
+# Display the overlapping variants per groups
 list(
   Intersection_endoseq_OE = intersection_endoseq_OE,
   Intersection_endoseq_OC = intersection_endoseq_OC,
@@ -78,8 +81,6 @@ list(
   Intersection_all_endoseq = intersection_all_endoseq,
   Intersection_all_synchron = intersection_all_synchron
 )
-
-
 
 
 
