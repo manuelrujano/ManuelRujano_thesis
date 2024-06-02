@@ -18,10 +18,6 @@ data2 <- read.xlsx("C:/Users/manue/Downloads/exome2/Merged_data_exome_filtered.x
 #data2 <- read.xlsx("C:/Users/manue/Downloads/latest_annotated_samples_twistexome.xlsx")
 
 
-
-
-# Assuming data1 and data2 are already defined
-
 #Intersect variants
 
 endo1_1 <- c("2E_vs_2N", "4E_vs_4N")
@@ -91,10 +87,6 @@ list(
 #Heatmap code
 
 
-# Assuming 'geneSampleDF' contains your data
-# Assuming 'SamplesWithVariant' is numeric and represents counts of samples with variants
-
-
 
 data <- rbind(data1, data2)
 
@@ -106,7 +98,7 @@ num_unique_samples <- length(unique(data$Sample))
 sum(is.na(data$Sample))
 sum(is.na(data$Variant))
 
-#Number of samples with variants#################################
+#Number of samples per variants
 ContingTableVariantsSamples <- apply(table(data$Variant, data$Sample), 1,
                                      function(x){ sum(x != 0)})
 
@@ -125,7 +117,6 @@ colnames(VariantSampleDF) <- c(colnames(table(data$Variant, data$Sample)), "Samp
 heatmap_data <- VariantSampleDF[, -ncol(VariantSampleDF)]
 
 
-# Assuming data$Freq.ALT.tumor contains the values you want to fill in geneSampleDF
 
 # Function to replace cell values in geneSampleDF with corresponding values from data$Freq.ALT.tumor
 fillCells <- function(x) {
@@ -148,7 +139,6 @@ VariantSampleDF1[is.na(VariantSampleDF1)] <- 0
 rownames(VariantSampleDF1) <- rownames(heatmap_data)
 colnames(VariantSampleDF1) <- colnames(heatmap_data)
 
-# Now geneSampleDF contains the values from data$Freq.ALT.tumor
 
 # Define a color palette
 my_palette <- colorRampPalette(c("#132B43", "#56B1F7", "#FFFFFF", "#FFA07A", "#A30000"))(100)
@@ -194,12 +184,13 @@ annotation_df <- data.frame(
 heatmap_results <- pheatmap(as.matrix(VariantSampleDF1),
                             color = my_palette,
                             clustering_method = "single",
-                            clustering_distance_rows = "binary",  # Cluster rows based on binary occurrence
-                            clustering_distance_cols = "binary",  # Cluster columns based on binary occurrence
+                            clustering_distance_rows = "binary",
+                            clustering_distance_cols = "binary",
                             legend = TRUE,
                             legend_fill = my_palette,
-                            main = "Mutation spectrum of endometriosis and EAOC",
+                            main = "Mutation profile of endometriosis and EAOC",
                             fontsize = 9,
                             cellwidth = 15,
-                            annotation_col = annotation_df,  # Provide the annotation dataframe
+                            annotation_col = annotation_df,
                             annotation_colors = list(Group = c("Endo" = "#FFD700", "Tumor" = "#008000")),)
+
