@@ -20,7 +20,7 @@ data2 <- read.xlsx("C:/Users/manue/Downloads/exome2/Merged_data_exome_filtered.x
 
 #Intersect variants
 
-#Assign subgroups of histotypes for Endo-seq (A) dataset
+#Extract names and assign subgroups of histotypes for Endo-seq (A) dataset
 
 names_endo_CCOC_A <- c("2E_vs_2N", "4E_vs_4N")
 names_tumor_CCOC_A <- c("2O_vs_2N", "4O_vs_4N")
