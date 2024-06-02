@@ -12,7 +12,7 @@ data2 <- read.xlsx("C:/Users/manue/Downloads/latest2_annotated_samples_exome.xls
 
 
 
-# Count of variants per sequence types annotated by SnpEff#######################
+# Count of variants per sequence types annotated by SnpEff
 
 data_nc <- rbind(data1, data2)
 
@@ -20,7 +20,7 @@ summary_type <- data_nc %>%
   group_by(Type) %>%
   summarise(Count = n())
 
-# Create a vector of new names corresponding to the original types
+# Vector of new names corresponding to the original types
 new_names <- c(
   "3_prime_UTR_variant" = "3' UTR Variant",
   "5_prime_UTR_variant" = "5' UTR Variant",
@@ -39,7 +39,7 @@ new_names <- c(
   "upstream_gene_variant" = "Upstream Gene Variant"
 )
 
-# Replace the 'Type' column with the new names
+# Replace the Type column with the new names
 summary_type$Type <- new_names
 
 # Calculate total count
@@ -51,14 +51,14 @@ df <- summary_type %>%
 
 
 
-# Sei bar plot with horizontal orientation and bars ordered by count
+# Variants bar plot with horizontal orientation and bars ordered by count
 ggplot(summary_type, aes(x = Count, y = fct_reorder(Type, Count, .desc = FALSE))) +
   geom_bar(stat = "identity") +
   theme(axis.text.y = element_text(angle = 0, hjust = 1, vjust = 0.5),
         plot.title = element_text(hjust = 1.5),  # Adjust the bottom margin of the title
         plot.margin = margin(t = 20, r = 20, b = 20, l = 20)) +  # Adjust the top, right, bottom, and left margins
-  labs(title = "Count of variants per sequence region annotated by SnpEff",
-       x = "Count",
+  labs(title = "Number of variants per sequence region annotated by SnpEff",
+       x = "Number of variants",
        y = "Sequence region")
 
 
@@ -81,7 +81,7 @@ summary_df <- data_eq %>%
 
 
 
-# Create a vector of new names corresponding to the original types
+# Vector of new names corresponding to the original types
 new_names <- c(
   "3_prime_UTR_variant" = "3' UTR Variant",
   "5_prime_UTR_variant" = "5' UTR Variant",
@@ -159,7 +159,7 @@ ggplot(df, aes(x = Sequence.class, fill = Group, y = Count)) +
   scale_fill_brewer(palette = "Set2") +
   theme(plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
         axis.text.x = element_text(angle = 45, hjust = 1, size=10)) +
-  labs(title = "Count of variants per sequence class annotated by Sei",
+  labs(title = "Number of variants per sequence class annotated by Sei",
        x = "Sequence class",
-       y = "Count")
+       y = "Number of variants")
 
