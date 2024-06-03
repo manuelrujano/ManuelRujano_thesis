@@ -5,14 +5,12 @@ library(ggplot2)
 library(stringr)
 library(forcats)
 
-setwd("C:/Users/manue/Downloads")
-
-data1 <- read.xlsx("C:/Users/manue/Downloads/latest2_annotated_samples_endoseq.xlsx")
-data2 <- read.xlsx("C:/Users/manue/Downloads/latest2_annotated_samples_exome.xlsx")
+data1 <- read.xlsx("C:/Users/manue/Downloads/latest_annotated_samples_endoseq.xlsx")
+data2 <- read.xlsx("C:/Users/manue/Downloads/latest_annotated_samples_twistexome.xlsx")
 
 
 
-# Count of variants per sequence types annotated by SnpEff
+# Count of variants per sequence types annotated by SnpEff#######################
 
 data_nc <- rbind(data1, data2)
 
@@ -113,13 +111,13 @@ ggplot(summary_df_long, aes(x = Type, y = Count, fill = Gene_Match_SnpEff)) +
 # Script to reproduce count of variants per sequence class annotated by Sei
 
 
-data1 <- read.xlsx("C:/Users/manue/Downloads/latest2_annotated_samples_endoseq.xlsx")
-data2 <- read.xlsx("C:/Users/manue/Downloads/latest2_annotated_samples_exome.xlsx")
+data1 <- read.xlsx("C:/Users/manue/Downloads/latest_annotated_samples_endoseq.xlsx")
+data2 <- read.xlsx("C:/Users/manue/Downloads/latest_annotated_samples_twistexome.xlsx")
 
 
-data6 <- rbind(data1, data2)
+data_sei <- rbind(data1, data2)
 
-summary_seq_class <- data6 %>%
+summary_seq_class <- data_sei %>%
   group_by(Sequence.class) %>%
   summarise(Count = n())
 
@@ -162,4 +160,3 @@ ggplot(df, aes(x = Sequence.class, fill = Group, y = Count)) +
   labs(title = "Number of variants per sequence class annotated by Sei",
        x = "Sequence class",
        y = "Number of variants")
-
