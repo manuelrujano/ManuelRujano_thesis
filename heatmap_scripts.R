@@ -114,7 +114,7 @@ colnames(VariantSampleDF) <- c(colnames(table(data$Variant, data$Sample)), "Samp
 #write.xlsx(VariantSampleDF, file = "C:/Users/manue/Downloads/Morethan3.xlsx",
 #           row.names = TRUE)
 
-# Remove the last column (which is 'SamplesWithVariant') before plotting
+# Remove the last column (the total) before plotting 
 heatmap_data <- VariantSampleDF[, -ncol(VariantSampleDF)]
 
 
@@ -128,7 +128,7 @@ fillCells <- function(x) {
 }
 
 
-# Apply fillCells to each cell of geneSampleDF
+# Apply the function to each cell of geneSampleDF
 SampleDF <- apply(expand.grid(1:nrow(heatmap_data), 1:ncol(heatmap_data)), 1, fillCells)
 
 # Convert geneSampleDF to data frame
@@ -156,14 +156,14 @@ newnames <- c("OE-1A", "OC-E-1A", "OE-2B", "OC-CC-2B",  "OE-2A", "OC-CC-2A", "OE
               "OC-E-6A", "OC-E-8B", "OE-9B", "OC-E-9B")
 
 
-# Find indices of original names in the dataframe
+# Indices of original names in the dataframe
 indices <- match(original_names, colnames(VariantSampleDF1))
 
 # Replace original names with new names in the dataframe
 colnames(VariantSampleDF1)[indices] <- newnames
 
 
-# Create a vector indicating the group color for each sample
+# Vector indicating the group color for each sample
 sample_names <- colnames(VariantSampleDF1)
 groups1 <- ifelse(sample_names %in% c("OE-1A", "OE-2B", "OE-2A", "OE-3B", "OE-3A",  
                                       "OE-4A", "OE-5A", "OE-6A", "OE-9B"),
@@ -174,7 +174,7 @@ groups1 <- ifelse(sample_names %in% c("OE-1A", "OE-2B", "OE-2A", "OE-3B", "OE-3A
                          "Tumor",
                          "NA"))
 
-# Create a dataframe for annotation
+# dataframe for annotation
 annotation_df <- data.frame(
   Group = groups1,
   row.names = sample_names
