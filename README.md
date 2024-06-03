@@ -1,8 +1,3 @@
-Once obtained the files from the merging and filtering step, these scripts were run in the following order:
-
-1- eQTL extraction
-2- Sei sequence class extraction
-3- Barplots graph
-4- Heatmap visualization
+Once obtained the files from the merging and filtering step, these scripts can be used to reproduce the barplots and the heatmap.
 
 
