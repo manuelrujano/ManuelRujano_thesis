@@ -128,7 +128,7 @@ fillCells <- function(x) {
 }
 
 
-# Apply the function to each cell of geneSampleDF
+# Apply the function to each cell of VariantSampleDF
 SampleDF <- apply(expand.grid(1:nrow(heatmap_data), 1:ncol(heatmap_data)), 1, fillCells)
 
 # Convert geneSampleDF to data frame
