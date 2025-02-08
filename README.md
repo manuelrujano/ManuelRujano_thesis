@@ -4,7 +4,6 @@ Overall data processing workflow
 
 Once obtained the files from the merging and filtering step, these scripts can be used to reproduce the barplots and the heatmap.
 
-![Rplot04](https://github.com/user-attachments/assets/c421d16d-485a-475f-905b-fe96e62ea5e7)
 
 
 
