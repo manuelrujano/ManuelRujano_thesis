@@ -26,7 +26,7 @@ The command was located at:
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf`
 
 ### 4. How would you configure the pipeline to trim the fastqs?  
-Fastp is integrated by default in the demultiplex pipeline to perform adapter trimming and quality filtering. Optionally, to enable or customize trimming, the user can supply adapter sequences through the Illumina samplesheets and include the `--remove_adapters` flag in the command line. (refer to [nf-core/demultiplex] (https://nf-co.re/demultiplex/1.5.4/docs/usage/)).  
+Fastp is integrated by default in the demultiplex pipeline to perform adapter trimming and quality filtering. Optionally, to enable or customize trimming, the user can supply adapter sequences through the Illumina samplesheets and include the `--remove_adapters` flag in the command line. (refer to [nf-core/demultiplex](https://nf-co.re/demultiplex/1.5.4/docs/usage/)).  
 
 ### 5. How would you configure the pipeline so that MultiQC is run with `--exclude fastp`? (This excludes the fastp section from the MultiQC report.) 
 
