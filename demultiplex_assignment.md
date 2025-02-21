@@ -1,6 +1,6 @@
 # **Assignment for Project Assistant in Bioinformatics 2025**
 ## Name: Manuel A. Rujano B.
-## Date: 02/20/2025
+## Date: 02/21/2025
 
 ### 1. How many samples does the test data set include?
 The test dataset includes **1 sample**.
@@ -29,7 +29,7 @@ The main script containing the bclconvert command in my case was found in the ma
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf`
 
 ### 4. How would you configure the pipeline to trim the fastqs?  
-Fastp is integrated by default into the pipeline. This tool performs... Optionally, the user can provide adapter sequences through the Illumina sample sheets and include the `--remove_adapters` flag in the command line.  
+Fastp is integrated by default into the pipeline. This tool performs... Optionally, the user can provide adapter sequences through the Illumina sample sheets and include the `--remove_adapters` flag in the command line (Incluir una referencia de la doc).  
 
 ### 5. How would you configure the pipeline so that MultiQC is run with `--exclude fastp`? (This excludes the fastp section from the MultiQC report.) 
 
@@ -52,4 +52,5 @@ nextflow run nf-core/demultiplex \
     --outdir results
 ```
 Another way would be to configure the original multiqc_config.yaml located in 
+
 ### 6. References
