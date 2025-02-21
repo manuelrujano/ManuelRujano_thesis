@@ -57,3 +57,5 @@ Alternatively, you could modify the default `multiqc_config.yml` directly in the
 ([https://nf-co.re/demultiplex](https://nf-co.re/demultiplex/1.5.4)
 #### MultiQC Documentation:
 ([https://multiqc.info/docs](https://docs.seqera.io/multiqc/reports/customisation#removing-modules-or-sections))
+
+b3KI3N)!KK
