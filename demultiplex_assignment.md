@@ -13,8 +13,7 @@ The bclconvert version used is reported in the `nf_core_pipeline_software_mqc_ve
 
 ### 3. What was the exact bclconvert command used?
 
-In the Nextflow process for bclconvert, the command executed was:  
-*(Clarify any necessary arguments before running the command.)*
+The bclconvert command is dynamically built and executed within a Nextflow process block as follows:
 
 ```bash
 bcl-convert \
@@ -23,9 +22,7 @@ bcl-convert \
     --bcl-input-directory ${input_dir} \
     --sample-sheet ${samplesheet}
 ```
-
-The main script containing the bclconvert command in my case was found in the main Nextflow folder containing the demultiplex modules following this path:
-
+This command is located at:
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf`
 
 ### 4. How would you configure the pipeline to trim the fastqs?  
