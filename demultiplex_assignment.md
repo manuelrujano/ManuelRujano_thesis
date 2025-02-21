@@ -22,7 +22,7 @@ bcl-convert \
     --bcl-input-directory ${input_dir} \
     --sample-sheet ${samplesheet}
 ```
-This command is located at:
+Thw command was located at:
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf`
 
 ### 4. How would you configure the pipeline to trim the fastqs?  
