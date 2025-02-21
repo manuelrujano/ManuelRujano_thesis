@@ -32,7 +32,7 @@ Fastp is integrated by default in the demultiplex pipeline to perform adapter tr
 
 First, you can customize a MultiQC configuration file to exclude the fastp module from the MultiQC report (see [MultiQC docs](https://docs.seqera.io/multiqc/reports/customisation#removing-modules-or-sections)).  
 
-I created a file named `multiqc_config.yml` adding the following content at the end:  
+I created a file named `multiqc_config.yml` (similar to the one located in the Nextflow assets directory) adding the following content at the end:  
 
 ```yaml
 exclude_modules:
