@@ -13,7 +13,7 @@ The bclconvert version used is reported in the `nf_core_pipeline_software_mqc_ve
 
 ### 3. What was the exact bclconvert command used?
 
-The bclconvert command is dynamically built and executed within a Nextflow process block as follows:
+The bclconvert command is dynamically built within a Nextflow process block as follows:
 
 ```bash
 bcl-convert \
