@@ -24,25 +24,25 @@ bcl-convert \
     --sample-sheet ${samplesheet}
 ```
 
-The main script containing the bclconvert command was found in the Nextflow folder following this path:
+The main script containing the bclconvert command in my case was found in the main Nextflow folder containing the demultiplex modules following this path:
 
-/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf
+`/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf`
 
 ### 4. How would you configure the pipeline to trim the fastqs?  
-Fastp is integrated by default into the pipeline. Optionally, the user can provide adapter sequences through the Illumina sample sheets and include the `--remove_adapters` flag in the command line.  
+Fastp is integrated by default into the pipeline. This tool performs... Optionally, the user can provide adapter sequences through the Illumina sample sheets and include the `--remove_adapters` flag in the command line.  
 
 ### 5. How would you configure the pipeline so that MultiQC is run with `--exclude fastp`? (This excludes the fastp section from the MultiQC report.) 
 
 You can configure the pipeline to exclude the fastp module from the MultiQC report by using a custom MultiQC configuration file.  
 
-Create a file named `multiqc_config.yaml` with the following content:  
+I created a file named `multiqc_config.yml` with the following content:  
 
 ```yaml
 exclude_modules:
   - "fastp"
 ```
 
-And then run the pipeline with:
+And then I would include the parameter `--multiqc_config </path/to/multiqc_config.yml> ` to run the pipeline as follows:
 
 ```bash
 nextflow run nf-core/demultiplex \
@@ -51,4 +51,5 @@ nextflow run nf-core/demultiplex \
     --input pipeline_samplesheet.csv \
     --outdir results
 ```
+Another way would be to configure the original multiqc_config.yaml located in 
 ### 6. References
