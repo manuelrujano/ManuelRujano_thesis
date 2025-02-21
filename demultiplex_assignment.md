@@ -29,20 +29,20 @@ The main script containing the bclconvert command in my case was found in the ma
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/modules/nf-core/bclconvert/main.nf`
 
 ### 4. How would you configure the pipeline to trim the fastqs?  
-Fastp is integrated by default into the pipeline. This tool performs... Optionally, the user can provide adapter sequences through the Illumina sample sheets and include the `--remove_adapters` flag in the command line (Incluir una referencia de la doc).  
+Fastp is integrated by default into the pipeline. This tool performs... Optionally, the user can provide adapter sequences through the Illumina sample sheets and include the `--remove_adapters` flag in the command line. This will... and  (Incluir una referencia de la doc).  
 
 ### 5. How would you configure the pipeline so that MultiQC is run with `--exclude fastp`? (This excludes the fastp section from the MultiQC report.) 
 
-You can configure the pipeline to exclude the fastp module from the MultiQC report by using a custom MultiQC configuration file.  
+You can configure the pipeline to exclude the fastp module from the MultiQC report by using a custom MultiQC configuration file (Incluir referencia de MultiQC docs).  
 
-I created a file named `multiqc_config.yml` with the following content:  
+I created a file named `multiqc_config.yml` adding the following content:  
 
 ```yaml
 exclude_modules:
   - "fastp"
 ```
 
-And then I would include the parameter `--multiqc_config </path/to/multiqc_config.yml> ` to run the pipeline as follows:
+And then I would include the parameter `--multiqc_config` specifying the path to the custom MultiQC configuration file, then run the pipeline as follows:
 
 ```bash
 nextflow run nf-core/demultiplex \
@@ -50,7 +50,15 @@ nextflow run nf-core/demultiplex \
     --multiqc_config /path/to/multiqc_config.yaml \
     --input pipeline_samplesheet.csv \
     --outdir results
+
+nextflow run nf-core/demultiplex \
+  -profile test,docker -revision 1.5.4 \
+  --outdir /Users/alexandrapolukarova/Manuel_Rujano/assignment_snpseq_2025/results_custom_multiqc \
+  --multiqc_config /Users/alexandrapolukarova/Manuel_Rujano/assignment_snpseq_2025/multiqc_custom.yml
+  
 ```
-Another way would be to configure the original multiqc_config.yaml located in 
+Another way would be to configure the original `multiqc_config.yml` located in the main Nextflow and demultiplex folder:
+
+`/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/assets`
 
 ### 6. References
