@@ -47,7 +47,7 @@ nextflow run nf-core/demultiplex \
     --multiqc_config /path/to/multiqc_config.yml \
     --outdir results  
 ```
-Alternatively, you could modify the default `multiqc_config.yml` in the Nextflow assets directory:
+Alternatively, you could modify the default `multiqc_config.yml` in the Nextflow assets directory and run the pipeline without using the `--multiqc_config` parameter:
 
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/assets`
 
