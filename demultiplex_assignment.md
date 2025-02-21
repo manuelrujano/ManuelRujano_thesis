@@ -33,7 +33,7 @@ Fastp is integrated by default into the pipeline. This tool performs... Optional
 
 ### 5. How would you configure the pipeline so that MultiQC is run with `--exclude fastp`? (This excludes the fastp section from the MultiQC report.) 
 
-You can configure the pipeline to exclude the fastp module from the MultiQC report by using a custom MultiQC configuration file (Incluir referencia de MultiQC docs).  
+You can configure the pipeline to exclude the fastp module from the MultiQC report by using a custom MultiQC configuration file (see [MultiQC docs](https://docs.seqera.io/multiqc/reports/customisation#removing-modules-or-sections)).  
 
 I created a file named `multiqc_config.yml` adding the following content:  
 
@@ -42,23 +42,21 @@ exclude_modules:
   - "fastp"
 ```
 
-And then I would include the parameter `--multiqc_config` specifying the path to the custom MultiQC configuration file, then run the pipeline as follows:
+And then I included the parameter `--multiqc_config` specifying the path to the custom MultiQC configuration file, then run the pipeline as follows:
 
 ```bash
 nextflow run nf-core/demultiplex \
     -profile test,docker -revision 1.5.4 \
-    --multiqc_config /path/to/multiqc_config.yaml \
-    --input pipeline_samplesheet.csv \
-    --outdir results
-
-nextflow run nf-core/demultiplex \
-  -profile test,docker -revision 1.5.4 \
-  --outdir /Users/alexandrapolukarova/Manuel_Rujano/assignment_snpseq_2025/results_custom_multiqc \
-  --multiqc_config /Users/alexandrapolukarova/Manuel_Rujano/assignment_snpseq_2025/multiqc_custom.yml
-  
+    --multiqc_config /path/to/multiqc_config.yml \
+    --outdir results  
 ```
-Another way would be to configure the original `multiqc_config.yml` located in the main Nextflow and demultiplex folder:
+Alternatively, you could modify the default `multiqc_config.yml` in the Nextflow assets directory:
 
 `/Users/alexandrapolukarova/.nextflow/assets/nf-core/demultiplex/assets`
 
 ### 6. References
+
+#### nf-core/demultiplex Documentation:
+([https://nf-co.re/demultiplex](https://nf-co.re/demultiplex/1.5.4)
+#### MultiQC Documentation:
+([https://multiqc.info/docs](https://docs.seqera.io/multiqc/reports/customisation#removing-modules-or-sections))
