@@ -10,7 +10,7 @@ The study design aims to detect and interpret non-coding variants in endometrios
 sequencing data (WES). The pipeline included preprocessing, variant calling, and annotation,
 generating VCF files as output. 
 
-Further, VCF files were processed using the **[Sei framework](https://github.com/manuelrujano), a deep-learning** pre-trained model to categorize
+Further, VCF files were processed using the **[Sei framework](https://github.com/manuelrujano/Modig_thesis/blob/main/Sei_framework.ipynb), a deep-learning** pre-trained model to categorize
 the sequences based on their regulatory activity. The steps are illustrated in Figure 1 below.
 
 
