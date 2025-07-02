@@ -11,12 +11,19 @@ sequencing data (WES). The pipeline included preprocessing, variant calling, and
 generating VCF files as output. 
 
 Further, VCF files were processed using the Sei framework, a deep-learning pre-trained model to categorize
-the sequences based on their regulatory activity. The steps are illustrated in the figure below.
+the sequences based on their regulatory activity. The steps are illustrated in Figure 1 below.
 
 
 ![Picture1](https://github.com/user-attachments/assets/46a8d75f-7e0d-4b79-97ff-99d4b36ecc7a)
 
-Once obtained the files from the merging and filtering step, these scripts can be used to reproduce the barplots and the heatmap.
+Figure 1. The methods and flow of this study. 
+
+# **Hotspots predicted by the Sei deep-learning model (Figure 2)**
+
+![image](https://github.com/user-attachments/assets/cebb0e20-0f9f-42f0-976a-3b86f200e77a)
+
+Figure 2. Number of variants per Sequence Class predicted by Sei. The bar graph categorizes the number of genetic variants across different sequence classes, with annotations grouped into categories such as CTCF Cohesin, Enhancer (E), Heterochromatin (HET), Low Signal (L), Polycomb (PC), Promoter (P), Transcription Factor (TF) and Transcription Sequence (TN). 
+
 
 
 
