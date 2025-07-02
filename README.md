@@ -1,3 +1,8 @@
+
+**Assessment Of Non -Coding Mutations In Endometriosis And Ovarian Cancer Histotypes
+
+This repository contains my master thesis work done in Spring 2023 at AstraZeneca in Gothenburg. The final report can be read at this [Link](https://github.com/manuelrujano)
+
 Overview
 The study design aims to detect and interpret non-coding variants in cancer. Sarek version 
 3.2.3 was used for variant analysis on the FastQ files of whole exome
