@@ -24,13 +24,6 @@ Figure 1. The methods and flow of this study.
 
 Figure 2. Number of variants per Sequence Class predicted by Sei. The bar graph categorizes the number of genetic variants across different sequence classes, with annotations grouped into categories such as CTCF Cohesin, Enhancer (E), Heterochromatin (HET), Low Signal (L), Polycomb (PC), Promoter (P), Transcription Factor (TF) and Transcription Sequence (TN). 
 
-# **Analysis of common variants (Figure 3)**
-
-
-![image](https://github.com/user-attachments/assets/c3ea1dfd-145c-44b6-874d-d9b457d0fdcc)
-
-Figure 3. Heatmap of common mutations in OE and OC with frequency variants in >3 samples per group. The heatmap shows common mutations in OE and OC, with variants occurring in >3 samples per group. Rows represent variants by chromosomal position, while columns represent samples. The color gradient indicates variant allele frequencies (VAF), from blue (VAF=0) to red (VAF=1). "E" or "CC" identifies OC histotypes, with A or B suffixes distinguishing Endo-seq and Synchron-seq samples.
-
 
 
 
