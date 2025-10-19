@@ -1,6 +1,7 @@
 
 # **Assessment Of Non-Coding Mutations In Endometriosis And Ovarian Cancer Histotypes**
 
+This section repository contains the scripts for the graphs and neural network model used in my thesis project at the University of Gothenburg.
 
 **Overview:**
 
