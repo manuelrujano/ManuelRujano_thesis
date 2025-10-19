@@ -1,7 +1,6 @@
 
 # **Assessment Of Non-Coding Mutations In Endometriosis And Ovarian Cancer Histotypes**
 
-This repository contains my master thesis work done in Spring 2024 at the University of Gothenburg. The final report can be read at this [Link](https://github.com/manuelrujano/Modig_thesis/blob/main/Rujano_Thesis_Masters_Degree.pdf).
 
 **Overview:**
 
